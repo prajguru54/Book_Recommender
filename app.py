@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-df = pd.read_csv('books.csv', error_bad_lines=False)
+df = pd.read_csv('books.csv', on_bad_lines='skip')
 df.columns = [c.strip() for c in list(df.columns)] # num_pages column has some leading spaces
 df_original = df.copy()
 df_original.title = [i.lower() for i in df_original.title.values]
